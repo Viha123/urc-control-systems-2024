@@ -146,8 +146,8 @@ hal::v5::strong_ptr<hal::input_pin> input_pin_2()
 
 hal::v5::strong_ptr<hal::output_pin> output_pin_0()
 {
-  return hal::v5::make_strong_ptr<decltype(gpio_a().acquire_output_pin(0))>(
-    driver_allocator(), gpio_a().acquire_output_pin(0));
+  return hal::v5::make_strong_ptr<decltype(gpio_a().acquire_output_pin(8))>(
+    driver_allocator(), gpio_a().acquire_output_pin(8));
 }
 
 hal::v5::strong_ptr<hal::output_pin> output_pin_1()
@@ -170,8 +170,8 @@ hal::v5::strong_ptr<hal::output_pin> output_pin_3()
 
 hal::v5::strong_ptr<hal::output_pin> output_pin_4()
 {
-  return hal::v5::make_strong_ptr<decltype(gpio_b().acquire_output_pin(12))>(
-    driver_allocator(), gpio_b().acquire_output_pin(12));
+  return hal::v5::make_strong_ptr<decltype(gpio_a().acquire_output_pin(3))>(
+    driver_allocator(), gpio_a().acquire_output_pin(3));
 }
 
 
