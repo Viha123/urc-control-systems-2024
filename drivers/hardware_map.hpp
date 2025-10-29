@@ -25,6 +25,7 @@
 #include <libhal/output_pin.hpp>
 #include <libhal/pointers.hpp>
 #include <libhal/pwm.hpp>
+#include <libhal/rotation_sensor.hpp>
 #include <libhal/serial.hpp>
 #include <libhal/spi.hpp>
 #include <libhal/steady_clock.hpp>
@@ -87,6 +88,7 @@ hal::v5::strong_ptr<hal::pwm16_channel> pwm_channel_1();
 hal::v5::strong_ptr<hal::adc> adc_0();
 hal::v5::strong_ptr<hal::adc> adc_1();
 hal::v5::strong_ptr<hal::i2c> i2c();
+hal::v5::strong_ptr<hal::rotation_sensor> encoder();
 
 inline void reset()
 {

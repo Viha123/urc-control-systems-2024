@@ -36,6 +36,7 @@
 #include <libhal-util/serial.hpp>
 #include <libhal-util/steady_clock.hpp>
 #include <libhal/pwm.hpp>
+#include <libhal/rotation_sensor.hpp>
 #include <libhal/units.hpp>
 
 #include "../hardware_map.hpp"
@@ -173,6 +174,7 @@ hal::v5::strong_ptr<hal::output_pin> output_pin_4()
     driver_allocator(), gpio_b().acquire_output_pin(12));
 }
 
+
 auto& timer1()
 {
   static hal::stm32f1::advanced_timer<st_peripheral::timer1> timer1{};
@@ -185,6 +187,14 @@ auto& timer2()
   return timer2;
 }
 
+hal::v5::strong_ptr<hal::rotation_sensor> encoder()
+{
+  return timer2().acquire_quadrature_encoder(driver_allocator(),
+    { static_cast<hal::stm32f1::timer_pins>(hal::stm32f1::timer2_pin::pa0),
+      static_cast<hal::stm32f1::timer_pins>(hal::stm32f1::timer2_pin::pa1) },
+    753);
+}
+  
 auto& timer3()
 {
   static hal::stm32f1::general_purpose_timer<st_peripheral::timer3> timer3{};
